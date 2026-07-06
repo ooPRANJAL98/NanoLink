@@ -321,12 +321,11 @@ Java, Spring Boot, REST API design, Docker, Docker Compose, PostgreSQL, Redis, S
 ---
 
 ## Author
+**Pranjal**
 
-**Your Name**
-B.Tech Computer Science Engineering, Shoolini University (2027)
-GitHub: https://github.com/ooPRANJAL98
-LinkedIn: https://linkedin.com/in/pranjal-~-25689b348
-Email: YOUR_EMAIL
+- GitHub: https://github.com/ooPRANJAL98
+- LinkedIn: https://linkedin.com/in/pranjal-~-25689b348
+- Email: workforpranjal19@gmail.com
 
 ---
 
