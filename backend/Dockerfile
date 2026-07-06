@@ -1,21 +1,17 @@
 # -----------------------------
 # Stage 1 - Build the application
 # -----------------------------
-FROM eclipse-temurin:17-jdk-alpine AS build
+FROM maven:3.9-eclipse-temurin-17-alpine AS build
 
 WORKDIR /app
 
-COPY .mvn .mvn
-COPY mvnw .
-RUN chmod +x mvnw
-
 COPY pom.xml .
 
-RUN ./mvnw dependency:go-offline
+RUN mvn dependency:go-offline
 
 COPY src src
 
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # -----------------------------
 # Stage 2 - Run the application
