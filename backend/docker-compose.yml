@@ -1,39 +1,56 @@
-version: '3.8'
+version: "3.8"
 
 services:
+
   postgres:
     image: postgres:16
     container_name: urlshortener-postgres
+
     environment:
       POSTGRES_DB: urlshortener
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgre
+
     ports:
       - "5432:5432"
+
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
+    restart: unless-stopped
+
   redis:
-    image: redis:latest
+    image: redis:7-alpine
     container_name: urlshortener-redis
+
     ports:
       - "6379:6379"
 
+    restart: unless-stopped
+
   app:
     build: .
+
     container_name: urlshortener-app
+
     ports:
       - "8080:8080"
+
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/urlshortener
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgre
+
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
-      APP_BASE_URL: http://localhost:8080
+
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8080}
+
     depends_on:
       - postgres
       - redis
+
+    restart: unless-stopped
 
 volumes:
   postgres-data:
