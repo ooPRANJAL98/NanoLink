@@ -36,12 +36,6 @@ public class LinkController {
         return ResponseEntity.ok(new ShortenResponse(shortenRequest.getUrl(), shortUrl, code));
     }
 
-//    @GetMapping("/{code}")
-//    public ResponseEntity<Void> resolve(@PathVariable String code) {
-//        String longUrl = linkService.resolve(code);
-//        return ResponseEntity.status(HttpStatus.FOUND).location(URI.create(longUrl)).build();
-//    }
-
 
     @GetMapping("/{code}")
     public ResponseEntity<Void> redirect(@PathVariable String code, HttpServletRequest request) {
