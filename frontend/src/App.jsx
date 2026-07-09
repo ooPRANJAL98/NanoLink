@@ -8,7 +8,7 @@ import FeatureSection from "./components/FeatureSection";
 import Footer from "./components/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export default function App() {
 
