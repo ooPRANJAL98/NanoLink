@@ -1,6 +1,5 @@
 package com.project.urlshortener.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -14,7 +13,11 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173")
+                        .allowedOriginPatterns(
+                                "http://localhost:5173",
+                                "https://nano-link-delta.vercel.app",
+                                "https://nano-link-*.vercel.app"
+                        )
                         .allowedMethods("GET", "POST", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }
