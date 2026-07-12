@@ -78,14 +78,24 @@ public class LinkService {
 
         map.setShortUrl(code);
 
+       try {
         repository.save(map);
+    } catch (DataIntegrityViolationException e) {
+        // Two requests raced past existsByShortUrl at the same time.
+        // The DB unique constraint caught it — convert to a clean 409
+        // instead of letting it bubble up as a 500.
+        throw new AliasAlreadyExistsException(
+                "Alias already exists.",
+                generateSuggestions(customAlias)
+        );
+    }
 
         logger.info("Short URL created successfully {}", code);
 
         return code;
     }
     /**
-     * Resolve Short URL
+     * Resolving Short URL
      */
     public String resolve(String code) {
 
