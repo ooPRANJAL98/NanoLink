@@ -20,7 +20,7 @@ export default function ResultCard({
   const [copied, setCopied] = useState(false);
 
   // Backend endpoint
-  const qrUrl = `${import.meta.env.VITE_API_URL}/api/qr/${result.shortCode}`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(result.shortUrl)}`;
   const copy = () => {
     navigator.clipboard.writeText(result.shortUrl);
     setCopied(true);

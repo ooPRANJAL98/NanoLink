@@ -5,11 +5,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Base62Encoder {
 
+
     private static final String characterSet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     private static final int base = characterSet.length();
 
     public String encode(long value) {
+
         StringBuilder sb = new StringBuilder();
         if (value == 0) {
             return "00000";
