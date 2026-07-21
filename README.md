@@ -16,8 +16,8 @@ It's built with Spring Boot on the backend, PostgreSQL for storage, Redis for ca
 
 ## Live Demo
 
-**Frontend:** coming soon
-**Backend API:** coming soon
+**Frontend:** Deployed on Vercel
+**Backend API:** Deployed on Railway
 
 ---
 
