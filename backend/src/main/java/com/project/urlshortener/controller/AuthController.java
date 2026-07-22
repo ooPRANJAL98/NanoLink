@@ -5,7 +5,6 @@ import com.project.urlshortener.dto.LoginRequest;
 import com.project.urlshortener.dto.RegisterRequest;
 import com.project.urlshortener.service.AuthService;
 import jakarta.validation.Valid;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
